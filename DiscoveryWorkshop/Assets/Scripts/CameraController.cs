@@ -1,30 +1,21 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
     public GameObject player;
-    private Transform cameraTransform;
     private Vector3 offset;
-    public float rotationSpeed = 5.0f; 
-    
+
+    // Start is called before the first frame update
     void Start()
     {
-        cameraTransform = transform.GetChild(0); 
-        offset = cameraTransform.position - player.transform.position;
+        offset = transform.position - player.transform.position;
     }
-    
+
+    // Update is called once per frame
     void LateUpdate()
     {
-        cameraTransform.position = player.transform.position + offset;
-
-        Vector3 movementDirection = player.GetComponent<Rigidbody>().velocity.normalized;
-        
-        if (movementDirection != Vector3.zero)
-        {
-            Quaternion newRotation = Quaternion.LookRotation(movementDirection);
-            cameraTransform.rotation = Quaternion.Slerp(cameraTransform.rotation, newRotation, rotationSpeed * Time.deltaTime);
-        }
-        
-        transform.rotation = Quaternion.LookRotation(player.transform.position - transform.position, Vector3.up);
+        transform.position = player.transform.position + offset;
     }
 }

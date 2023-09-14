@@ -781,10 +781,6 @@ PrefabInstance:
       propertyPath: actionTarget
       value: 
       objectReference: {fileID: 1936439064}
-    - target: {fileID: 325234589016254213, guid: 02cbad9415f25404e8b8ff3e5b095a55, type: 3}
-      propertyPath: linkedObject
-      value: 
-      objectReference: {fileID: 1936439064}
     - target: {fileID: 3162724217412901786, guid: 02cbad9415f25404e8b8ff3e5b095a55, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.6104231
