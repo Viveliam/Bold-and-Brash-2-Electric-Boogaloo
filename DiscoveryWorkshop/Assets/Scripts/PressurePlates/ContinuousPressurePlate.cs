@@ -1,26 +1,27 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using ActionScripts;
 using UnityEngine;
 
 public class PressurePlate : MonoBehaviour
 {
     [SerializeField] private GameObject linkedObject;
 
-    private MovingPlatform _movingPlatform;
+    private Action _action;
     private bool _isPressed = false;
     
     // Start is called before the first frame update
     void Start()
     {
-        _movingPlatform = linkedObject.GetComponent<MovingPlatform>();
+        _action = linkedObject.GetComponent<Action>();
     }
 
     private void FixedUpdate()
     {
         if (_isPressed)
         {
-            _movingPlatform.HandleMovement();
+            _action.DoAction();
         }
     }
 

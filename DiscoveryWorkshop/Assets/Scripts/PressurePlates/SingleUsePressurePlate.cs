@@ -6,11 +6,11 @@ using UnityEngine;
 public class Pressureplate : MonoBehaviour
 {
     [SerializeField]
-    GameObject actionTarget;
+    GameObject linkedObject;
 
     private void OnCollisionEnter(Collision other)
     {
-        var script = actionTarget.GetComponent<Action>();
+        var script = linkedObject.GetComponent<Action>();
         script.DoAction();
     }
 }
