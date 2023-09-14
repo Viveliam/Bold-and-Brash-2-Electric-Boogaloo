@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 8374520472864675697}
   - component: {fileID: 6162234232624174017}
   - component: {fileID: 932648409008758393}
-  - component: {fileID: 3387794635617328575}
   m_Layer: 0
   m_Name: Plate
   m_TagString: Untagged
@@ -228,19 +227,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3387794635617328575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1987760388621987953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09bfc3f387ed15b4096a027191e66431, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  linkedObject: {fileID: 1509108494756201951}
 --- !u!1 &2660530258817547838
 GameObject:
   m_ObjectHideFlags: 0
