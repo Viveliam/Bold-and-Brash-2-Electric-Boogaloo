@@ -12,5 +12,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 931638fea2f8900498510b54e1d86f84, type: 3}
   m_Name: DynamicPlayerInventory
   m_EditorClassIdentifier: 
-  maxItems: 10
-  items: []

@@ -12,6 +12,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 133c4bcb63f226e4ea8b146200e533e1, type: 3}
   m_Name: Pistol
   m_EditorClassIdentifier: 
-  itemName: Pistol
-  icon: {fileID: 0}
-  description: A simple pistol. It'll do the job!
