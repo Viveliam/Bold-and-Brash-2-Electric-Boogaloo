@@ -1331,6 +1331,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1447179401}
+    - target: {fileID: -3145929053641312253, guid: a9a49f48d1fce524c81c5d9f6a04e2bb, type: 3}
+      propertyPath: activationDistance
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1016467079603228440, guid: a9a49f48d1fce524c81c5d9f6a04e2bb, type: 3}
       propertyPath: m_Name
       value: Enemy
