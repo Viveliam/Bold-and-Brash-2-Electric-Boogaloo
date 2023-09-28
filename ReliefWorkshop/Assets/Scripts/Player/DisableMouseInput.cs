@@ -6,7 +6,7 @@ namespace Player
     {
         void Start()
         {
-            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.lockState = CursorLockMode.None;
         }
     
     }
