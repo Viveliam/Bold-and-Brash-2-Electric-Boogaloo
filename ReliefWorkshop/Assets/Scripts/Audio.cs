@@ -7,44 +7,43 @@ public class Audio : MonoBehaviour
 {
     public AudioSource source; // This should be assigned in the Inspector
     public AudioClip clip;
-    public Transform target; // The target (camera) to measure the distance to
-
+    public Transform player; // The player GameObject
     public float maxVolumeDistance = 10.0f; // Adjust this distance for your needs
     private EnemyBehaviour _enemyBehaviour;
-
-    private void Start()
-    {
-        if (target == null)
-        {
-            // If the target (camera) is not assigned, use the main camera as the default target.
-            target = Camera.main.transform;
-        }
-
-        _enemyBehaviour = GetComponent<EnemyBehaviour>();
-    }
 
     // Update is called once per frame
     void Update()
     {
-        if (_enemyBehaviour.GetEnemyState == EnemyBehaviour.EnemyState.Hunt)
+        if (player == null)
         {
-            if (!source.isPlaying)
-            {
-                source.loop = true;
-                source.clip = clip;
-                source.Play();
-            }
+            // If the player is not assigned, find it by its tag (you can change the tag or use a different method to find it).
+            player = GameObject.FindGameObjectWithTag("Player").transform;
+        }
 
-            // Calculate the distance between the GameObject and the target (camera).
-            float distanceToTarget = Vector3.Distance(transform.position, target.position);
+        if (player != null)
+        {
+            // Calculate the distance between the enemy (this GameObject) and the player.
+            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
             // Calculate the volume based on distance.
-            float volume = Mathf.Clamp01(1 - (distanceToTarget / maxVolumeDistance));
+            float volume = Mathf.Clamp01(1 - (distanceToPlayer / maxVolumeDistance));
+
+            if (volume > 0)
+            {
+                if (!source.isPlaying)
+                {
+                    source.loop = true;
+                    source.clip = clip;
+                    source.Play();
+                }
+            }
+            else
+            {
+                source.loop = false;
+            }
+
+            // Set the audio source's volume based on the calculated volume.
             source.volume = volume;
-        }
-        else
-        {
-            source.loop = false;
         }
     }
 }
