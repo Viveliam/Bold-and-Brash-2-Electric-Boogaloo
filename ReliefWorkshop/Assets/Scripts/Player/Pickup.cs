@@ -15,6 +15,7 @@ namespace Player
             {
                 audioSource.PlayOneShot(audioClip);
                 amountOfPictures++;
+                print(amountOfPictures.ToString());
                 Destroy(other.gameObject);
             }
         }

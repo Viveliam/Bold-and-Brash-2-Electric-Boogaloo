@@ -1,4 +1,5 @@
 using System;
+using System.Security.Cryptography.X509Certificates;
 using Player;
 using UnityEngine;
 
@@ -24,6 +25,7 @@ namespace Enemy
         private void Start()
         {
             _enemyRb = GetComponent<Rigidbody>();
+            _pickupScript = player.GetComponent<Pickup>();
             SwitchState(EnemyState.Idle);
         }
 
@@ -45,8 +47,12 @@ namespace Enemy
         
         private void OnIdleUpdate()
         {
-   
+            print(_pickupScript.amountOfPictures.ToString());
+            if (_pickupScript.amountOfPictures >= pictureAmountBeforeHunt)
+            {
+                print("Test");
                 OnIdleExit();
+            }
         }
         
         private void OnIdleExit() { SwitchState(EnemyState.Hunt); }
