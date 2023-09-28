@@ -332,7 +332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21694766b26ff4245b70d2922410d910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: Enemy
+  scene: Level
 --- !u!1 &618790641
 GameObject:
   m_ObjectHideFlags: 0

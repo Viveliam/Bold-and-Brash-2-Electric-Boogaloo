@@ -1,4 +1,5 @@
 using System;
+using Player;
 using UnityEngine;
 
 namespace Enemy
@@ -15,13 +16,16 @@ namespace Enemy
         
         [SerializeField] private Transform player;
         [SerializeField] private float movementSpeed;
+        [SerializeField] private int pictureAmountBeforeHunt;
         private Rigidbody _enemyRb;
         private EnemyState _enemyState;
+        private Pickup _pickupScript;
         
         private void Start()
         {
             _enemyRb = GetComponent<Rigidbody>();
             SwitchState(EnemyState.Idle);
+            _pickupScript = player.GetComponent<Pickup>();
         }
 
         private void SwitchState(EnemyState enemyState)
@@ -43,8 +47,10 @@ namespace Enemy
         //if 3 pickups, OnIdleExit
         private void OnIdleUpdate()
         {
-            // if () { OnIdleExit(); }
-            // OnIdleExit();
+            if (_pickupScript.AmountOfPictures > pictureAmountBeforeHunt)
+            {
+                OnIdleExit();
+            }
         }
         
         private void OnIdleExit() { SwitchState(EnemyState.Hunt); }
