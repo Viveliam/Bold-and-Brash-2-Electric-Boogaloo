@@ -1,9 +1,4 @@
-using System;
-using System.Collections;
-using ScriptableObjects;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Enemy
 {
@@ -45,7 +40,10 @@ namespace Enemy
         private void OnIdleEnter() { OnIdleUpdate(); }
         
         //if 3 pickups, OnIdleExit
-        private void OnIdleUpdate() { if () { OnIdleExit(); } }
+        private void OnIdleUpdate()
+        {
+            // if () { OnIdleExit(); }
+        }
         
         private void OnIdleExit() { SwitchState(EnemyState.Hunt); }
         
