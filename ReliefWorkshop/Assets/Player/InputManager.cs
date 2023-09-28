@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputManage : MonoBehaviour
+public class InputManager : MonoBehaviour
 {
     [SerializeField] private Movement movement;
     [SerializeField] Mouselook mouseLook;
