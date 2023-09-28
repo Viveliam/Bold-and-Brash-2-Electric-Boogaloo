@@ -44,7 +44,7 @@ namespace Enemy
         private void OnIdleUpdate()
         {
             // if () { OnIdleExit(); }
-            OnIdleExit();
+            // OnIdleExit();
         }
         
         private void OnIdleExit() { SwitchState(EnemyState.Hunt); }
