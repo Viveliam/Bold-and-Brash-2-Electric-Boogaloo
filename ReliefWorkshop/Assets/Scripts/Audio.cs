@@ -29,9 +29,9 @@ public class Audio : MonoBehaviour
             // Calculate the volume based on distance.
             float volume = Mathf.Clamp01(1 - (distanceToPlayer / maxVolumeDistance));
 
-            if (volume > 0)
+            if (volume > 0 && _enemyBehaviour.GetEnemyState == EnemyBehaviour.EnemyState.Hunt)
             {
-                if (!source.isPlaying && _enemyBehaviour.GetEnemyState == EnemyBehaviour.EnemyState.Hunt)
+                if (!source.isPlaying)
                 {
                     source.loop = true;
                     source.clip = clip;
