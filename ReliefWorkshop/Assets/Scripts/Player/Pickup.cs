@@ -18,11 +18,5 @@ namespace Player
                 Destroy(other.gameObject);
             }
         }
-
-        public int AmountOfPictures
-        {
-            get => amountOfPictures;
-            set => amountOfPictures = value;
-        }
     }
 }

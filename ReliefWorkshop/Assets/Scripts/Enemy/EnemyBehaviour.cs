@@ -44,11 +44,12 @@ namespace Enemy
 
         private void OnIdleEnter() { OnIdleUpdate(); }
         
-        //if 3 pickups, OnIdleExit
         private void OnIdleUpdate()
         {
-            if (_pickupScript.AmountOfPictures > pictureAmountBeforeHunt)
+            print(_pickupScript.amountOfPictures.ToString());
+            if (_pickupScript.amountOfPictures >= pictureAmountBeforeHunt)
             {
+                print("Test");
                 OnIdleExit();
             }
         }
@@ -68,7 +69,7 @@ namespace Enemy
         
         private void Update()
         {
-            throw new NotImplementedException();
+            OnIdleUpdate();
         }
 
 
