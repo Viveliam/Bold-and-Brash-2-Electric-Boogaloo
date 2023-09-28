@@ -25,7 +25,6 @@ namespace Enemy
         {
             _enemyRb = GetComponent<Rigidbody>();
             SwitchState(EnemyState.Idle);
-            _pickupScript = player.GetComponent<Pickup>();
         }
 
         private void SwitchState(EnemyState enemyState)
@@ -46,12 +45,8 @@ namespace Enemy
         
         private void OnIdleUpdate()
         {
-            print(_pickupScript.amountOfPictures.ToString());
-            if (_pickupScript.amountOfPictures >= pictureAmountBeforeHunt)
-            {
-                print("Test");
+   
                 OnIdleExit();
-            }
         }
         
         private void OnIdleExit() { SwitchState(EnemyState.Hunt); }
