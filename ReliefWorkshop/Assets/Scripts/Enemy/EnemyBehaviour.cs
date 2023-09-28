@@ -7,7 +7,7 @@ namespace Enemy
     {
         //Happy flow
         //Move to player --> lock --> attack --> cooldown --> move --> repeat
-        private enum EnemyState
+        public enum EnemyState
         {
             Idle,
             Hunt,
@@ -44,7 +44,6 @@ namespace Enemy
         private void OnIdleUpdate()
         {
             // if () { OnIdleExit(); }
-            OnIdleExit();
         }
         
         private void OnIdleExit() { SwitchState(EnemyState.Hunt); }
@@ -86,5 +85,7 @@ namespace Enemy
             _enemyRb.MovePosition(transform.position +
                 positionDifference.normalized * (Time.deltaTime * movementSpeed));
         }
+
+        public EnemyState GetEnemyState => _enemyState;
     }
 }

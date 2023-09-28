@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Enemy;
 using UnityEngine;
 
 public class Audio : MonoBehaviour
@@ -9,6 +10,7 @@ public class Audio : MonoBehaviour
     public Transform target; // The target (camera) to measure the distance to
 
     public float maxVolumeDistance = 10.0f; // Adjust this distance for your needs
+    private EnemyBehaviour _enemyBehaviour;
 
     private void Start()
     {
@@ -17,14 +19,14 @@ public class Audio : MonoBehaviour
             // If the target (camera) is not assigned, use the main camera as the default target.
             target = Camera.main.transform;
         }
+
+        _enemyBehaviour = GetComponent<EnemyBehaviour>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Rigidbody rb = GetComponent<Rigidbody>(); // Assuming the script is attached to the GameObject with Rigidbody
-
-        if (rb != null && rb.velocity.magnitude > 0)
+        if (_enemyBehaviour.GetEnemyState == EnemyBehaviour.EnemyState.Hunt)
         {
             if (!source.isPlaying)
             {
