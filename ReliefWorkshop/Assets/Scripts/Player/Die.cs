@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Player
 {
@@ -8,7 +9,7 @@ namespace Player
         {
             if (other.transform.CompareTag("Enemy"))
             {
-                Destroy(gameObject);
+                SceneManager.LoadScene("DeathScene");
             }
         }
     }

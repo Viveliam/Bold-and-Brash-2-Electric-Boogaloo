@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Enemy;
@@ -30,7 +31,7 @@ public class Audio : MonoBehaviour
 
             if (volume > 0)
             {
-                if (!source.isPlaying)
+                if (!source.isPlaying && _enemyBehaviour.GetEnemyState == EnemyBehaviour.EnemyState.Hunt)
                 {
                     source.loop = true;
                     source.clip = clip;
@@ -40,6 +41,7 @@ public class Audio : MonoBehaviour
             else
             {
                 source.loop = false;
+                source.Stop();
             }
 
             // Set the audio source's volume based on the calculated volume.
