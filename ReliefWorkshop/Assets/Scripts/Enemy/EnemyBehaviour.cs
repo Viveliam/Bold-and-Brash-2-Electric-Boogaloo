@@ -47,10 +47,8 @@ namespace Enemy
         
         private void OnIdleUpdate()
         {
-            print(_pickupScript.amountOfPictures.ToString());
             if (_pickupScript.amountOfPictures >= pictureAmountBeforeHunt)
             {
-                print("Test");
                 OnIdleExit();
             }
         }
