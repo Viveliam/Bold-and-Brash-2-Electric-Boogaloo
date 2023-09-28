@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Enemy
@@ -6,7 +7,7 @@ namespace Enemy
     {
         //Happy flow
         //Move to player --> lock --> attack --> cooldown --> move --> repeat
-        private enum EnemyState
+        public enum EnemyState
         {
             Idle,
             Hunt,
@@ -20,7 +21,7 @@ namespace Enemy
         private void Start()
         {
             _enemyRb = GetComponent<Rigidbody>();
-            _enemyState = EnemyState.Idle;
+            SwitchState(EnemyState.Idle);
         }
 
         private void SwitchState(EnemyState enemyState)
@@ -43,6 +44,7 @@ namespace Enemy
         private void OnIdleUpdate()
         {
             // if () { OnIdleExit(); }
+            OnIdleExit();
         }
         
         private void OnIdleExit() { SwitchState(EnemyState.Hunt); }
@@ -56,8 +58,14 @@ namespace Enemy
         
         //No way to exit hunting state for now
         private void OnHuntExit() { SwitchState(EnemyState.Idle); }
+
         
-        
+        private void Update()
+        {
+            throw new NotImplementedException();
+        }
+
+
         private void FixedUpdate()
         {
             var positionDifference = new Vector3(player.position.x, 0.0f, player.position.z) - 
@@ -78,5 +86,7 @@ namespace Enemy
             _enemyRb.MovePosition(transform.position +
                 positionDifference.normalized * (Time.deltaTime * movementSpeed));
         }
+
+        public EnemyState GetEnemyState => _enemyState;
     }
 }
