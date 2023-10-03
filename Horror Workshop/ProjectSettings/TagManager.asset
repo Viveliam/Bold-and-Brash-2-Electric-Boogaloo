@@ -5,8 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Weapon
+  - Entity
   - CinemachineTarget
-  - Enemy
+  - Key
+  - UnlockableDoor
   layers:
   - Default
   - TransparentFX
