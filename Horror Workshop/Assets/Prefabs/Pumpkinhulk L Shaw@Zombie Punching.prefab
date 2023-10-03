@@ -170,7 +170,7 @@ MonoBehaviour:
   escapeRange: 20
   animator: {fileID: 7720410798458990278}
   prefab: {fileID: 4888715958700266602, guid: eea6f1c1eb13303458fd1a173af49464, type: 3}
-  throwingSpeed: 50
+  throwingSpeed: 30
   objectDisappearTime: 2
 --- !u!95 &7720410798458990278
 Animator:
