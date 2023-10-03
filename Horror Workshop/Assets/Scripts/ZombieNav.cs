@@ -8,7 +8,6 @@ public class ZombieNav : MonoBehaviour
     public float detectionRange;
     public float escapeRange;
     public Animator animator;
-    public float animationTrick;
 
     private GameObject player;
     private NavMeshAgent enemy;
