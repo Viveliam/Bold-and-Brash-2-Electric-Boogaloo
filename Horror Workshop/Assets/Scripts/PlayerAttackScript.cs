@@ -9,12 +9,15 @@ public class PlayerAttackScript : MonoBehaviour
     private bool _canAttack;
     private bool _shootPress;
     private BoxCollider _collider;
+    private Animator _animator;
+    private static readonly int IsAttacking = Animator.StringToHash("IsAttacking");
 
     void Start()
     {
+        _animator = GetComponent<Animator>();
         //If weapon is in hands of player, can attack
         _canAttack = transform.childCount != 0;
-
+        
         if (_canAttack)
         {
             var weapon = transform.GetChild(0);
@@ -38,23 +41,15 @@ public class PlayerAttackScript : MonoBehaviour
     {
         _canAttack = false;
         _collider.enabled = true;
-        print(_collider.enabled.ToString());
-        //Animatiesnelheid uit controller halen
-        var animationSpeed = 1f;
-        // play animation/move of child weapon with speed attackSpeed
+        
+        _animator.SetBool(IsAttacking, true);
             
     
-        yield return new WaitForSeconds(animationSpeed);
-
+        yield return new WaitForSeconds(_animator.GetCurrentAnimatorStateInfo(0).length);
+        
         _collider.enabled = false;
         _shootPress = false;
-        
-        StartCoroutine(Cooldown());
-    }
-
-    private IEnumerator Cooldown()
-    {
-        yield return new WaitForSeconds(_weaponStats.attackCooldown);
+        _animator.SetBool(IsAttacking, false);
         _canAttack = true;
     }
 
