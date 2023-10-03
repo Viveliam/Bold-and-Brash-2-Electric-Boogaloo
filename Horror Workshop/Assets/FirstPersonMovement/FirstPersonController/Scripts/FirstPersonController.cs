@@ -175,7 +175,7 @@ namespace StarterAssets
 				_stamina -= _staminaDischarge * Time.deltaTime;
 				targetSpeed = SprintSpeed;
 			}
-			else if (_stamina <= MaxStamina)
+			else if (_stamina <= MaxStamina && !_input.sprint)
 			{
 				_stamina += StaminaRecharge * Time.deltaTime;
 			}
