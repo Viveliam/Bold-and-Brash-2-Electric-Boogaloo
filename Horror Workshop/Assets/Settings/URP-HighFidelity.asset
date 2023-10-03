@@ -93,11 +93,7 @@ MonoBehaviour:
     serializedBounds: []
     serializedHasVolumes: []
     bakingSets: []
-<<<<<<< Updated upstream
-    m_LightingScenario: 
-=======
     m_LightingScenario: Default
->>>>>>> Stashed changes
   m_PrefilteringModeMainLightShadows: 1
   m_PrefilteringModeAdditionalLight: 4
   m_PrefilteringModeAdditionalLightShadows: 1

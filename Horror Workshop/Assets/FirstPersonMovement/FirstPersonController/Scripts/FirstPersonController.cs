@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
@@ -20,7 +21,13 @@ namespace StarterAssets
 		public float RotationSpeed = 1.0f;
 		[Tooltip("Acceleration and deceleration")]
 		public float SpeedChangeRate = 10.0f;
+		[Tooltip("How long the player should be able to sprint")]
+		public float MaxStamina = 100.0f;
+		[Tooltip("How fast the player regains stamina")]
+		public float StaminaRecharge = 10.0f;
 
+		public Image StaminaBar;
+		
 		[Space(10)]
 		[Tooltip("The height the player can jump")]
 		public float JumpHeight = 1.2f;
@@ -63,6 +70,10 @@ namespace StarterAssets
 		// timeout deltatime
 		private float _jumpTimeoutDelta;
 		private float _fallTimeoutDelta;
+		
+		// Stamina
+		private float _stamina;
+		private float _staminaDischarge = 20f;
 
 	
 #if ENABLE_INPUT_SYSTEM
@@ -108,6 +119,9 @@ namespace StarterAssets
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
+			
+			// Sets stamina
+			_stamina = MaxStamina;
 		}
 
 		private void Update()
@@ -154,7 +168,19 @@ namespace StarterAssets
 		private void Move()
 		{
 			// set target speed based on move speed, sprint speed and if sprint is pressed
-			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
+			float targetSpeed = MoveSpeed;
+
+			if (_input.sprint && _stamina >= 0)
+			{
+				_stamina -= _staminaDischarge * Time.deltaTime;
+				targetSpeed = SprintSpeed;
+			}
+			else if (_stamina <= MaxStamina)
+			{
+				_stamina += StaminaRecharge * Time.deltaTime;
+			}
+
+			StaminaBar.fillAmount = _stamina / MaxStamina;
 
 			// a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 
