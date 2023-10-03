@@ -152,6 +152,7 @@ GameObject:
   - component: {fileID: 1978471637655604388}
   - component: {fileID: 5420857361349278248}
   - component: {fileID: 8616685848737228376}
+  - component: {fileID: 3204285820465572208}
   m_Layer: 8
   m_Name: PlayerCapsule
   m_TagString: Player
@@ -218,6 +219,9 @@ MonoBehaviour:
   SprintSpeed: 6
   RotationSpeed: 1
   SpeedChangeRate: 10
+  MaxStamina: 100
+  StaminaRecharge: 10
+  StaminaBar: {fileID: 0}
   JumpHeight: 1.2
   Gravity: -15
   JumpTimeout: 0.1
@@ -366,3 +370,17 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &3204285820465572208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8616685848737228372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f2ae1e57e478494dbb78ad6ddf50720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  KeyCounter: 0
+  Text: {fileID: 0}
