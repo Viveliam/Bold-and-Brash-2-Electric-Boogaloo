@@ -6,7 +6,7 @@ namespace ScriptableObjects.Weapons
     public class WeaponStats : ScriptableObject
     {
         //Attack animation speed
-        [SerializeField] private float attackSpeed;
+        public float attackSpeed;
         public float attackCooldown;
         public float damage;
     }
