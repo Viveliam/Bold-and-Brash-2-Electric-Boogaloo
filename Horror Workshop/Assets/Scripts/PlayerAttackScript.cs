@@ -1,9 +1,10 @@
 using System.Collections;
+using ScriptableObjects.Weapons;
 using UnityEngine;
 
 public class PlayerAttackScript : MonoBehaviour
 {
-    [SerializeField] private EntityStats entityStats;
+    [SerializeField] private WeaponStats weaponStats;
     private bool _canAttack;
 
     void Start()
@@ -25,8 +26,9 @@ public class PlayerAttackScript : MonoBehaviour
     private IEnumerator Cooldown()
     {
         _canAttack = false;
-        yield return new WaitForSeconds(entityStats.attackCooldown);
+        yield return new WaitForSeconds(weaponStats.attackCooldown);
         _canAttack = true;
     }
 
+    public WeaponStats WeaponStats => weaponStats;
 }
