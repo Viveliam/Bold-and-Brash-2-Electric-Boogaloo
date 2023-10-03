@@ -46,4 +46,6 @@ public class Entity : MonoBehaviour
         get => health;
         set => health = value;
     }
+
+    public EntityStats EntityStats => entityStats;
 }
